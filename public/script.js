@@ -24,14 +24,12 @@ const observer = new IntersectionObserver((entries) => {
 
 document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
 
-// Use the final transparent illustrated portrait at a stable size.
-// Keeping the image itself free of pointer transforms avoids browser resampling
-// artifacts while the surrounding architecture elements can continue to move.
+// Use the optimized transparent portrait at a stable size to avoid browser resampling blur.
 const heroVisual = document.querySelector('.hero-visual');
 const heroPortrait = heroVisual?.querySelector('img');
 
 if (heroPortrait) {
-  heroPortrait.src = '/assets/manoj-cutout.svg';
+  heroPortrait.src = '/assets/manoj-cutout.webp';
   heroPortrait.alt = 'Illustrated portrait of Manoj Paidimarri';
   heroPortrait.decoding = 'async';
   heroPortrait.loading = 'eager';
